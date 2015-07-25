@@ -198,7 +198,7 @@ describe('DO AUTOCORRECT', function(){
         should.exist(text)
         if (text.indexOf("stylesheet")>-1) {
           expect(text).to.contain("stylesheet")
-          expect(text).to.contain("<link rel=")
+          expect(text).to.contain("<link")
         }
         else {
           expect(text).to.contain("<style")
