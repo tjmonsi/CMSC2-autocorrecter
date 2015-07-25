@@ -194,10 +194,17 @@ describe('DO AUTOCORRECT', function(){
         
       })  
       
-      it("should have a link rel stylesheet in "+files[x].name, function(done){
+      it("should have a stylesheet in "+files[x].name, function(done){
         should.exist(text)
-        expect(text).to.contain("stylesheet")
-        expect(text).to.contain("<link rel=")
+        if (text.indexOf("stylesheet")>-1) {
+          expect(text).to.contain("stylesheet")
+          expect(text).to.contain("<link rel=")
+        }
+        else {
+          expect(text).to.contain("<style")
+          expect(text).to.contain("</style>")
+        }
+        
         done()
       })
       
