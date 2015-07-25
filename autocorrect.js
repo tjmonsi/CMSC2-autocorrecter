@@ -110,7 +110,7 @@ var files = [
     name: "/javascript-exercises/hello-world.html"
   },
   {
-    name: "/modern-internet/index.html"
+    name: "/modern-internet/index.html",
   },
   {
     name: "/modern-internet/email.html"
@@ -178,24 +178,37 @@ describe('DO AUTOCORRECT', function(){
       }
       done()
     })
+    
+    if (files[x].name.indexOf("modern-internet")>-1) {
+      it("should have bootstrap, foundation or materialize in " + files[x].name, function(done){
+        should.exist(text)
+        var err = null
+        
+        if (text.indexOf("bootstrap")<=-1 && text.indexOf("foundation")<=-1 && text.indexOf("materialize")<=-1) {
+          err = 1
+        }
+
+        
+       should.not.exist(err)
+       done();
+        
+      })  
+      
+      it("should have a link rel stylesheet in "+files[x].name, function(done){
+        should.exist(text)
+        expect(text).to.contain("stylesheet")
+        expect(text).to.contain("<link rel=")
+        done()
+      })
+      
+      it("should have a javascript source "+files[x].name, function(done){
+        should.exist(text)
+        expect(text).to.contain("<script src=")
+        // should.not.exist(text)
+        done()
+      })
+    }
+    
   }
     
-  
-  // var x, p
-  
-  // beforeEach(function(){
-  //   if (i < files.length) {
-  //     x =   
-  //   }
-     
-  // })
-  
-  // for (var x in files) {
-  
-  // }
- 
-    
-    
-  
-  
 })

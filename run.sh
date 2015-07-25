@@ -1,2 +1,2 @@
 cd ..
-mocha test
+mocha CMSC2-autocorrecter --reporter dot
