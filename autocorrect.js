@@ -210,7 +210,7 @@ describe('DO AUTOCORRECT', function(){
       
       it("should have a javascript source "+files[x].name, function(done){
         should.exist(text)
-        expect(text).to.contain("<script src=")
+        expect(text).to.contain("<script")
         // should.not.exist(text)
         done()
       })
